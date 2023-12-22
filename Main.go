@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/xuri/excelize/v2"
-	"io/ioutil"
+	"io"
 	"os"
 	"strings"
 )
@@ -170,7 +170,7 @@ func readValidation(validation *Validation) error {
 	defer file.Close()
 
 	// Read the file's contents
-	byteValue, err := ioutil.ReadAll(file)
+	byteValue, err := io.ReadAll(file)
 	if err != nil {
 		fmt.Println("Error reading file:", err)
 		return err
